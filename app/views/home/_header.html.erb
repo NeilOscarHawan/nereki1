@@ -1,0 +1,36 @@
+<%= stylesheet_link_tag('header') %>
+<nav class="navbar sticky-left">
+  <div class="container">
+      <br>
+    <div class="logo">
+      <%= image_tag("logos/header_logo.png", width:'100%') %>
+    </div>
+  </div>
+</nav>
+
+
+  <div class="p-4">
+  <ul class="navbar-nav text-white h4">
+        <li class="nav-item col-4">
+           
+        </li>
+        <li class="nav-item">
+        <br>
+          <%= link_to 'FAQs', home_faq_path, class:"nav-link active h1" %>  <br> <br> <br>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Schedule', home_index_path, class:"nav-link active h1" %>
+        </li>
+        <br>
+        <li class="nav-item">
+          <%= link_to 'Reserve', home_reserve_path, class:"nav-link active h1" %>
+        </li>
+        <br>
+        <li class="nav-item">
+        <%= link_to 'My Reservations', home_reservations_path, class:"nav-link active h1" %>
+        </li>
+      </ul>
+    
+  </div>
+
+

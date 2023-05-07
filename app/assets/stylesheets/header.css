@@ -1,0 +1,46 @@
+
+.navbar-toggler:hover{
+    color: #f1f1f1;
+    right: 0;
+  }
+
+.navbar:hover{
+    color: #f1f1f1;
+}
+
+.navbar-nav{
+    background-color: #243A73;
+}
+
+.container{
+    text-align: right;
+    background-color: #243A73;
+}
+.nav-link{
+    text-align: center;
+    background-color: #998F60;
+    border-radius: 10px;
+    padding: 15px;
+    
+}
+
+.nav-link:hover{
+    background-color: #726944
+    
+}
+.col{
+    background-color: #F5F5F5;
+}
+.col-4{
+    width: 20%;
+    background-color: #243A73;
+    padding-bottom: -.5rem;
+    margin-bottom: -1rem;
+}
+.p4 {
+    background-color: #243A73;
+}
+
+.col-4 ,.p-3, .mb-2{
+    background-color: #243A73;
+}
