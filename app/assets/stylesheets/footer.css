@@ -3,9 +3,9 @@ body{
 }
 
 .footer-card{
-    border-radius: 1px;
-    border-color: red;
+
     background-color: rgb(224, 224, 224) ;
     text-align: center;
+    font-size: small;
 
 }

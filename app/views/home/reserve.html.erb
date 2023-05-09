@@ -1,6 +1,76 @@
 <%= stylesheet_link_tag('application') %>
 
-
 <div class= "title card">
 <h1> Reservation Form </h1>
 </div>
+<div class= "title card">
+<div class="btn-group">
+  Class and Section: <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Right-aligned menu
+  </button>
+  <div class="dropdown-menu dropdown-menu-right">
+    <button class="dropdown-item" type="button">Action</button>
+    <button class="dropdown-item" type="button">Another action</button>
+    <button class="dropdown-item" type="button">Something else here</button>
+  </div>
+</div>  
+<form>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationServer01">First name</label>
+      <input type="text" class="form-control is-valid" id="validationServer01" placeholder="First name" value="Mark" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationServer02">Last name</label>
+      <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" value="Otto" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationServerUsername">Username</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupPrepend3">@</span>
+        </div>
+        <input type="text" class="form-control is-invalid" id="validationServerUsername" placeholder="Username" aria-describedby="inputGroupPrepend3" required>
+        <div class="invalid-feedback">
+          Please choose a username.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationServer03">Date</label>
+      <input type="date" class="form-control is-invalid" id="validationServer03" placeholder="City" required>
+      <div class="invalid-feedback">
+        Please provide a date.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationServer04">Time</label>
+      <input type="time" class="form-control is-invalid" id="validationServer04" placeholder="State" required>
+      <div class="invalid-feedback">
+        Please provide a time.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationServer05">Preferred AVR:</label>
+      <input type="text" class="form-control is-invalid" id="validationServer05" placeholder="AVR #" required>
+      <div class="invalid-feedback">
+        Please provide a preferred AVR.
+      </div>
+    </div>
+  </div>
+ 
+  
+  <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+</div>
+
+
+  

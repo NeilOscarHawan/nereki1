@@ -2,5 +2,175 @@
 
 <div class= "title card">
 <h1> SCHEDULE NI NGA PAGE</h1>
+<table = class"col-6">
+  <thead>
+    <tr>
+      <th>TIME</th>
+      <th>SL 2</th>
+      <th>AVR 2</th>
+      <th>AVR 3</th>
+      <th>AVR 4</th>
+      <th>AVR 5</th>
+      <th>AVR 6 </th>
+      <th>AVR 7 </th>
+      <th>AVR 8 </th>
+      <th>DBM </th>
+      <th>REGISTRAR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>7:30 - 9:00 AM</td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+    </tr>
+    <tr>
+    <td>9:00 - 10:30 AM</td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+    </tr>
+    <tr>
+      <td>10:30 - 12:00 NN</td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+    </tr>
+    <tr>
+      <td> 12:00 - 1:30 PM </td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+    </tr>
+    <tr>
+      <td>1:30 - 3:00 PM </td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+    </tr>
+    <tr>
+      <td>3:00 - 4:30 PM</td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+    </tr>
+    <tr>
+      <td>4:30 - 6:00 PM </td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+    </tr>
+    <tr>
+      <td>6:00 - 7:30 PM</td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+    </tr>
+    <tr>
+      <td>7:30 - 9:00 PM</td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+      <td><input type="text"></td>
+    </tr>
+    <!-- Add more rows as needed -->
+  </tbody>
+</table>
 </div>
+<form id="myForm">
+  <div id="inputFields">
+    <input type="text" name="input1">
+  </div>
+  <button type="button" onclick="addInput()">Add</button>
+</form>
+
+<script>
+  var inputCount = 1;
+
+  function addInput() {
+    if (inputCount < 5) {
+      inputCount++;
+      var inputFields = document.getElementById("inputFields");
+      var newInput = document.createElement("input");
+      newInput.type = "text";
+      newInput.name = "input" + inputCount;
+      inputFields.appendChild(newInput);
+    } else {
+      alert("You have reached the maximum number of input fields (5).");
+    }
+  }
+</script>
+<div id="editable" contenteditable="true">This text is editable.</div>
+
+<script>
+  var editableDiv = document.getElementById("editable");
+
+  editableDiv.addEventListener("input", function() {
+    // Do something with the edited text, such as save it to a database
+    console.log(editableDiv.innerHTML);
+  });
+</script>
 
