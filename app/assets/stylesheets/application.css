@@ -26,6 +26,7 @@ h1 {
 .body {
     display: flex;
     flex-direction: column;
+ 
     
   }
 body{
@@ -46,4 +47,11 @@ th{
 td{
     font-size: large;
     width: 10px;
+}
+img{
+  border-radius: 8px;
+
+}
+body{
+  height: 100vh;
 }

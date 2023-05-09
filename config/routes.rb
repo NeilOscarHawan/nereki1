@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
   get 'home/index'
   get 'home/reservations'
   get 'home/faq'
@@ -8,6 +13,8 @@ Rails.application.routes.draw do
   get 'admin/pending'
   get 'admin/faq'
   get 'admin/approved'
+  get 'users/sign_in'
+  get 'devise/sessions/new'
   root 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
