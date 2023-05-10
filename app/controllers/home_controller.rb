@@ -1,10 +1,10 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, only: [:reservations, :reserve]
+  before_action :authenticate_user!, only: [:myreservations, :reserve]
   def index
   
   end
 
-  def reservations
+  def myreservations
   end
 
   def reserve 

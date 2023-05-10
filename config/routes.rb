@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks"
   }
   get 'home/index'
-  get 'home/reservations'
+  get 'home/myreservations'
   get 'home/faq'
   get 'home/reserve'
   get 'home/student'
