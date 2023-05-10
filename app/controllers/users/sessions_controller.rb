@@ -17,7 +17,7 @@ class Users::SessionsController < Devise::SessionsController
     root_path
   end
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_resource_or_scope)
   if current_user.email.end_with?('@admin.com')
      admin_index_path
     else

@@ -22,10 +22,22 @@
     border-radius: 10px;
     padding: 15px;
     }
+.pending{
+    background-color: #be4810;
+}
+.approved{
+    background-color: #138522;
+}
 
 .nav-link:hover{
     background-color: #726944
     
+}
+.approved:hover{
+    background-color: #03af1a;
+}
+.pending:hover{
+    background-color: #e44d07;
 }
 .col{
     background-color: #F5F5F5;
@@ -50,3 +62,20 @@
 .row{
     margin-bottom: -.5rem;
 }
+a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    
+}
+.nav-link-approved{
+    text-align: center;
+    background-color: #4fb342;
+    border-radius: 10px;
+    padding: 15px;
+    }
+.nav-link-pending{
+        text-align: center;
+        background-color: #b12208;
+        border-radius: 10px;
+        padding: 15px;
+        }

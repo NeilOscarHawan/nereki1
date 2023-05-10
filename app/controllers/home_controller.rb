@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
+  before_action :authenticate_user!, only: [:reservations, :reserve]
   def index
+  
   end
 
   def reservations
@@ -9,6 +11,7 @@ class HomeController < ApplicationController
   end
 
   def faq
+    
   end
   
 end

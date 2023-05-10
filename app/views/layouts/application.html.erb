@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <title>Nereki</title>
+    <%= favicon_link_tag asset_path('logos/browser_logo') %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
@@ -26,7 +27,7 @@
     <%= button_to "Logout", destroy_user_session_path, data: {turbo: "false"}, method: :delete %>
     <% else %>
     <%= link_to "Login", new_user_session_path %>
-    <%= link_to "Sign Up", new_user_registration_path %>
+
     <% end %>
     
     </div>
