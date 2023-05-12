@@ -1,29 +1,29 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Pending Approvals</h1>
-<div class ="title card mt-5 text-center">
+<h1>My Reservations</h1>
+
 <table class="table">
 <thead class="thead">
     <tr>
-    <th>Name</th>
-    <th>Type</th>
-    <th>Contact # </th>
+    <th>Reservation Name</th>
+    <th>Reservation Type</th>
+    <th>Contact Number</th>
     <th>Date</th>
     <th>Time</th>
-    <th>Days</th>
-    <th>AVR</th>
-    <th>User email</th>
-    <th></th>
-    <th>Actions</th>
-    <th></th>
-    <th></th>
+    <th>Scheduled Days</th>
+    <th>Preferred AVR</th>
+    <th>Slots</th>
+
+  
+
     </tr>
 </thead>
 
 <tbody>
 
-      <% @reservations.each do |reservation| %>
+      <% @reservations.each do |reservation, index = 5|  %>
         <tr>
+        <% if reservation.user == current_user || current_user.email.end_with?('@admin.com') && reservation.res_name == reservation.res_name %>
         <td><%= reservation.res_name %></td>
         <td><%= reservation.res_type %></td>
         <td><%= reservation.contact_num %></td>
@@ -31,22 +31,24 @@
         <td><%= reservation.res_time %></td>
         <td><%= reservation.sched_days %></td>
         <td><%= reservation.avr %></td>
-        <td><%= reservation.user_email %></td>
+        <td><%= index -=1  %></td>
+
+      
 
         
         
+        
+        
         <td>
-          <%= link_to "Show", reservation %> 
-        </td>
-        <td>
-          <%= link_to "Delete" , method: :delete %>
-        </td>
-        <td>
-        <%= link_to "Edit this reservation", reservation%>
+          <%= link_to "Show", reservation %>
+          
         </td>
         </tr>
+        <%end%>
+
+
       <% end %>
 
     </tbody>
+
 </table>
-</div>

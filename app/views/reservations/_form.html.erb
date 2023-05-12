@@ -1,0 +1,72 @@
+<%= form_with(model: reservation, method: :post) do |form| %>
+  <% if reservation.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+      <ul>
+        <% reservation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :res_name,"Reservation Name:", style: "display: block" %>
+    <%= form.text_field :res_name %>
+  </div>
+<br>
+  <div>
+    <%= form.label :res_type, "Reservation Type:", style: "display: block" %>
+    <%= form.select :res_type, [ 'Organization', 'Class', 'Office' ], :prompt => 'Select One' %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :contact_num, "Contact Number:", style: "display: block" %>
+    <%= form.text_field :contact_num %>
+  </div>
+  <br>
+  <div>
+
+  
+
+    <%= form.label :date, "Date:", style: "display: block" %>
+    <%= form.date_field :res_date, id: :date %>
+    
+    
+  </div>
+  <br>
+  <div>
+    <%= form.label :res_time, "Time:", style: "display: block" %>
+    <%= form.select :res_time, ['7:30 - 9:00 AM', '9:00 - 10:30 AM', '10:30 - 12:00 PM', '12:00 - 1:30 PM', '1:30 - 3:00 PM', '3:00 - 4:30 PM', '4:30 - 6:00 PM', '6:00 - 7:30 PM', '7:30 - 9:00 PM'], :prompt => 'Select One' %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :sched_days, "Scheduled Days:", style: "display: block" %>
+    <%= form.select :sched_days, [ 'Mo/Thu', 'Tu/Fri', 'Wed/Sat', 'Sun' ], :prompt => 'Select One' %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :avr, "Preferred AVR:", style: "display: block" %>
+    <%= form.select  :avr, ['SL2', 'AVR2', 'AVR3', 'AVR4', 'AVR5', 'AVR6', 'AVR7', 'AVR8', 'DBM', 'Registrar'], :prompt => 'Select One' %>
+  </div>
+
+  <% if current_user.email.end_with?('@admin.com') %>
+  
+    <%else %>
+    <div>
+    <%= form.number_field :user_id, id: :reservation_user_id, value: current_user.id, type: :hidden %>
+  </div>
+  <div>
+    <%= form.number_field :user_email, id: :reservation_user_email, value: current_user.email, type: :hidden%>
+  </div>
+    <%end%>
+   
+    
+
+  <br>
+
+  <div>
+  <%= form.submit %>
+  </div>
+<% end %>

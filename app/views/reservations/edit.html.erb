@@ -1,0 +1,15 @@
+<h1>Editing reservation</h1>
+
+<%= render "form", reservation: @reservation %>
+
+<br>
+
+<div>
+  <%= link_to "Show this reservation", @reservation %> |
+  
+  <% if current_user.email.end_with?('@admin.com') %>
+    <%= link_to "Back to reservations", admin_pending_path %>
+    <%else %>
+  <%= link_to "Back to reservations", reservations_path %>
+  <%end%>
+</div>

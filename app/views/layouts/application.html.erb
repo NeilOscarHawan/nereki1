@@ -17,7 +17,12 @@
     <% render 'layouts/alerts' %>
     <div class ="row">
       <div class= "col-4 p-3 mb-2">
-        <%= render 'home/header' %>
+      <% if current_user.present? && current_user.email.end_with?('@admin.com')%>
+      <%= render 'admin/header' %>
+       <% else %>
+       <%= render 'home/header' %>
+       <% end %>
+  
        </div>
     <div class= "col">
     <div class="">
