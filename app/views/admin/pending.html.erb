@@ -1,18 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Pending Approvals</h1>
-<div class ="title card mt-5 text-center">
+
+<div class ="mt-5 text-center">
 <table class="table">
-<thead class="thead">
+<thead class="thead ">
     <tr>
-    <th>Name</th>
-    <th>Type</th>
-    <th>Contact # </th>
-    <th>Date</th>
-    <th>Time</th>
-    <th>Days</th>
+    <th>Reservation Name</th>
+    <th>Reservation Type</th>
+    <th>Date Reserved</th>
+    <th>Time Reserved</th>
     <th>AVR</th>
-    <th>User email</th>
     <th></th>
     <th>Actions</th>
     <th></th>
@@ -26,27 +24,18 @@
         <tr>
         <td><%= reservation.res_name %></td>
         <td><%= reservation.res_type %></td>
-        <td><%= reservation.contact_num %></td>
-        <td><%= reservation.res_date %></td>  
+        <td><%= reservation.res_date.strftime("%B %d") %></td>  
         <td><%= reservation.res_time %></td>
-        <td><%= reservation.sched_days %></td>
         <td><%= reservation.avr %></td>
-        <td><%= reservation.user_email %></td>
+        <td>
 
-        
-        
-        <td>
-          <%= link_to "Show", reservation %> 
         </td>
+
         <td>
-          <%= link_to "Delete" , method: :delete %>
-        </td>
-        <td>
-        <%= link_to "Edit this reservation", reservation%>
+        <%= link_to "Show reservation", reservation%>
         </td>
         </tr>
       <% end %>
-
     </tbody>
 </table>
 </div>

@@ -2,11 +2,20 @@
 
 <%= render @reservation %>
 <div>
-  <%= link_to "Edit this reservation", edit_reservation_path(@reservation) %> |
+  <%= link_to "Edit this reservation", edit_reservation_path(@reservation) %> 
   <% if current_user.email.end_with?('@admin.com') %>
     <%= link_to "Back to reservations", admin_pending_path %>
     <%else %>
-  <%= link_to "Back to reservations", reservations_path %>
+    
+
+
+<% if current_user.email.end_with?('@admin.com') %>
+  <%= button_to "Delete this reservation", @reservation, method: :delete, data: {confirm:'Are you sure?'} %>
+</div>
+<%else %>
+
+<%= link_to "Back to reservations", reservations_path %>
+<%= button_to "Delete this reservation", @reservation, method: :delete, data: {confirm:'Are you sure?'} %>
+<%end%>
 <%end %>
-  <%= button_to "Destroy this reservation", @reservation, method: :delete, data: {confirm:'Are you sure?'} %>
 </div>

@@ -8,7 +8,7 @@
   <%= link_to "Show this reservation", @reservation %> |
   
   <% if current_user.email.end_with?('@admin.com') %>
-    <%= link_to "Back to reservations", admin_pending_path %>
+    <%= link_to "Back to admin", admin_pending_path %>
     <%else %>
   <%= link_to "Back to reservations", reservations_path %>
   <%end%>

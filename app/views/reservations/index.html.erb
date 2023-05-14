@@ -1,5 +1,9 @@
 <p style="color: green"><%= notice %></p>
-
+<% if current_user.email.end_with?('@admin.com') %>
+<div class="col-4">
+<%= link_to "Go Back", admin_pending_path %> 
+</div>
+<%else %>
 <h1>My Reservations</h1>
 
 <table class="table">
@@ -8,47 +12,47 @@
     <th>Reservation Name</th>
     <th>Reservation Type</th>
     <th>Contact Number</th>
-    <th>Date</th>
-    <th>Time</th>
+    <th>Reservation Date</th>
+    <th>Reservation Time</th>
     <th>Scheduled Days</th>
     <th>Preferred AVR</th>
-    <th>Slots</th>
-
   
 
+  
+    <%end%>
     </tr>
 </thead>
 
 <tbody>
+<% if current_user.email.end_with?('@admin.com') %>
 
-      <% @reservations.each do |reservation, index = 5|  %>
+<% else %>
+
+      <% @reservations.each do |reservation|  %>
         <tr>
-        <% if reservation.user == current_user || current_user.email.end_with?('@admin.com') && reservation.res_name == reservation.res_name %>
+        <% if reservation.user == current_user || current_user.email.end_with?('@admin.com') && reservation.res_name == reservation.res_name%>
         <td><%= reservation.res_name %></td>
         <td><%= reservation.res_type %></td>
         <td><%= reservation.contact_num %></td>
-        <td><%= reservation.res_date %></td>  
+        <td><%= reservation.res_date.strftime("%B %d, %Y") %></td>  
         <td><%= reservation.res_time %></td>
         <td><%= reservation.sched_days %></td>
         <td><%= reservation.avr %></td>
-        <td><%= index -=1  %></td>
-
+ 
       
+           </td>
 
-        
-        
-        
-        
         <td>
           <%= link_to "Show", reservation %>
-          
         </td>
+        <%end%>
+ 
         </tr>
+
+
+
         <%end%>
 
-
-      <% end %>
-
     </tbody>
-
+    <% end %>
 </table>

@@ -15,6 +15,10 @@
   </p>
 
   <p>
+    <strong>Email:</strong>
+    <%= reservation.user_email %>
+  </p>
+  <p>
     <strong>Reservation Date:</strong>
     <%= reservation.res_date %>
   </p>
@@ -33,5 +37,10 @@
     <strong>Preferred AVR:</strong>
     <%= reservation.avr %>
   </p>
+
+  <p>
+  Date Created:
+  <%= reservation.created_at.strftime("%B %d") %>
+</p>
 
 </div>

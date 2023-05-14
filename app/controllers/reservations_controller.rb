@@ -1,11 +1,12 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, :except => [:index]
+  before_action :authenticate_user!
   before_action :authenticate_for_specific_path
   @reservations = Reservation.all
   # GET /reservations or /reservations.json
   def index
     @reservations = Reservation.all
+   
     
   end
   # def check_duplicate_date
@@ -29,6 +30,7 @@ class ReservationsController < ApplicationController
   # GET /reservations/1 or /reservations/1.json
   def show
     @reservations = Reservation.all
+    
   end
   
 
@@ -36,6 +38,11 @@ class ReservationsController < ApplicationController
   def new
     @reservations = Reservation.all
     @reservation = Reservation.new
+    if current_user.email.end_with?('@admin.com')
+      admin_pending_path
+     else
+
+     end
   end
 
 
@@ -43,12 +50,15 @@ class ReservationsController < ApplicationController
   # GET /reservations/1/edit
   def edit
     @reservations = Reservation.all
+    if current_user.email.end_with?('@admin.com')
+      admin_pending_path
+     else
+     end
   end
 
   # POST /reservations or /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
-
 
     respond_to do |format|
       if @reservation.save
@@ -79,10 +89,12 @@ class ReservationsController < ApplicationController
   # DELETE /reservations/1 or /reservations/1.json
   def destroy
     @reservation.destroy
-
+    
     respond_to do |format|
       format.html { redirect_to reservations_url, notice: "Reservation was successfully destroyed." }
       format.json { head :no_content }
+      
+      
     end
   end
 
@@ -90,10 +102,21 @@ class ReservationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation
       @reservation = Reservation.find(params[:id])
+      if current_user.email.end_with?('@admin.com')
+        admin_pending_path
+       else
+
+       end
     end
 
     # Only allow a list of trusted parameters through.
     def reservation_params
+      if current_user.email.end_with?('@admin.com')
+        admin_pending_path
+       else
+
+       end
       params.require(:reservation).permit(:res_name, :res_type, :contact_num, :res_date, :res_time, :sched_days, :avr, :user_id, :user_email)
     end
 end
+

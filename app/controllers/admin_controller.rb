@@ -10,16 +10,12 @@ class AdminController < ApplicationController
        else
         redirect_to root_path
        end
-      render :index
+       render :index
     end
 
     def pending
       @reservations = Reservation.all
-      if current_user.email.end_with?('@admin.com')
-        admin_index_path
-       else
-        redirect_to root_path
-       end
+  
     end
 
     def faq
