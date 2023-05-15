@@ -9,13 +9,13 @@ class Reservation < ApplicationRecord
     validates :res_type, presence: true
     validates :avr, presence: true
     validates :sched_days, presence: true
-
-  validate :validate_unique_on_avr_time_date
+    validates :res_status, presence: true
+    validate :validate_unique_on_avr_time_date
 
   private
 
   def validate_unique_on_avr_time_date
-    errors.add(:base, 'Reservation already exists with the same avr, date, and time combination') if Reservation.exists?(avr: avr, res_date: res_date, res_time: res_time)
+    errors.add(:base, 'Reservation already exists with the same avr, date, and time combination') 
+    if Reservation.exists?(avr: avr, res_date: res_date, res_time: res_time, res_status: res_status)
   end
 end
-
