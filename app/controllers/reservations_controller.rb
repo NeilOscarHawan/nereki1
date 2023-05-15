@@ -5,13 +5,11 @@ class ReservationsController < ApplicationController
   @reservations = Reservation.all
   # GET /reservations or /reservations.json
   def index
-    @reservations = Reservation.all
-   
-    
+    @pagy, @reservations = pagy(Reservation.all)
   end
   # def check_duplicate_date
   #   res_date = params[:date]
-  
+
   #   if Reservation.exists?(res_date: res_date)
   #     # Duplicate reservation found
   #     flash[:notice] = "Duplicate reservation found for date: #{res_date}"
@@ -30,9 +28,9 @@ class ReservationsController < ApplicationController
   # GET /reservations/1 or /reservations/1.json
   def show
     @reservations = Reservation.all
-    
+
   end
-  
+
 
   # GET /reservations/new
   def new
@@ -74,7 +72,7 @@ class ReservationsController < ApplicationController
 
   # PATCH/PUT /reservations/1 or /reservations/1.json
   def update
-  
+
     respond_to do |format|
       if @reservation.update(reservation_params)
         format.html { redirect_to reservation_url(@reservation), notice: "Reservation was successfully updated." }
@@ -89,12 +87,12 @@ class ReservationsController < ApplicationController
   # DELETE /reservations/1 or /reservations/1.json
   def destroy
     @reservation.destroy
-    
+
     respond_to do |format|
       format.html { redirect_to reservations_url, notice: "Reservation was successfully destroyed." }
       format.json { head :no_content }
-      
-      
+
+
     end
   end
 
