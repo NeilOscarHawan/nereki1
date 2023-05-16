@@ -66,11 +66,6 @@ end
 
   # PATCH/PUT /reservations/1 or /reservations/1.json
   def update
-<<<<<<< HEAD
-    @users = User.all
-=======
-
->>>>>>> fa356815bdd0a8b3c56d74d37a4921c65ac5d7dc
     respond_to do |format|
       if @reservation.update(reservation_params)
         ReservationMailer.reservation_approved.deliver_later
@@ -86,19 +81,12 @@ end
   # DELETE /reservations/1 or /reservations/1.json
   def destroy
     @reservation.destroy
-<<<<<<< HEAD
-    @users = User.all
-    respond_to do |format|
-      format.html { redirect_to reservations_url, notice: "Reservation was successfully destroyed." }
-      format.json { head :no_content }     
-=======
 
     respond_to do |format|
       format.html { redirect_to reservations_url, notice: "Reservation was successfully destroyed." }
       format.json { head :no_content }
 
 
->>>>>>> fa356815bdd0a8b3c56d74d37a4921c65ac5d7dc
     end
   end
 
