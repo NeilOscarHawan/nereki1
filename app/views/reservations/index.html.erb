@@ -1,6 +1,12 @@
 <p style="color: green, text-align: center;"><%= notice %></p>
 <% if current_user.email.end_with?('@admin.com') %>
+<<<<<<< HEAD
 
+=======
+<div class="col-4">
+<%= link_to "Go Back", admin_pending_path %>
+</div>
+>>>>>>> fa356815bdd0a8b3c56d74d37a4921c65ac5d7dc
 <%else %>
 <h1>My Reservations</h1>
 
@@ -15,11 +21,15 @@
     <th>Reservation Time</th>
     <th>Scheduled Days</th>
     <th>Preferred AVR</th>
+<<<<<<< HEAD
     <th>Status</th>
     <th></th>
   
+=======
+>>>>>>> fa356815bdd0a8b3c56d74d37a4921c65ac5d7dc
 
-  
+
+
     <%end%>
     </tr>
 </thead>
@@ -35,7 +45,7 @@
         <td><%= reservation.res_name %></td>
         <td><%= reservation.res_type %></td>
         <td><%= reservation.contact_num %></td>
-        <td><%= reservation.res_date.strftime("%B %d, %Y") %></td>  
+        <td><%= reservation.res_date.strftime("%B %d, %Y") %></td>
         <td><%= reservation.res_time %></td>
         <td><%= reservation.sched_days %></td>
         <td><%= reservation.avr %></td>
@@ -48,7 +58,7 @@
           <%= button_to "Show", reservation, method: :get, class:"show" %>
         </td>
         <%end%>
- 
+
         </tr>
 
 

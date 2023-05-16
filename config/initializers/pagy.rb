@@ -247,4 +247,8 @@ Pagy::DEFAULT[:overflow] = :empty_page    # default  (other options: :last_page 
 
 
 # When you are done setting your own default freeze it, so it will not get changed accidentally
+<<<<<<< HEAD
 Pagy::DEFAULT.freeze
+=======
+Pagy::DEFAULT.freeze
+>>>>>>> fa356815bdd0a8b3c56d74d37a4921c65ac5d7dc
