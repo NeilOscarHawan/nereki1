@@ -5,9 +5,9 @@ class ReservationsController < ApplicationController
   @reservations = Reservation.all
   # GET /reservations or /reservations.json
   def index
-    @reservations = Reservation.all
+    @pagy, @reservations = pagy(Reservation.all)
   end
-
+  
   def authenticate_for_specific_path
     if request.path == reservations_path  # Replace with your desired path
       authenticate_user!
