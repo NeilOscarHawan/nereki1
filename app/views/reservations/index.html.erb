@@ -1,12 +1,8 @@
 <p style="color: green, text-align: center;"><%= notice %></p>
 <% if current_user.email.end_with?('@admin.com') %>
-<<<<<<< HEAD
-
-=======
 <div class="col-4">
 <%= link_to "Go Back", admin_pending_path %>
 </div>
->>>>>>> fa356815bdd0a8b3c56d74d37a4921c65ac5d7dc
 <%else %>
 <h1>My Reservations</h1>
 
