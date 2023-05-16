@@ -6,21 +6,8 @@ class ReservationsController < ApplicationController
   # GET /reservations or /reservations.json
   def index
     @reservations = Reservation.all
-   
-    
   end
-  # def check_duplicate_date
-  #   res_date = params[:date]
-  
-  #   if Reservation.exists?(res_date: res_date)
-  #     # Duplicate reservation found
-  #     flash[:notice] = "Duplicate reservation found for date: #{res_date}"
-  #     redirect_to reservation_url(@reservation)
-  #   else
-  #     # No duplicate found, proceed with saving
-  #     # ...
-  #   end
-  # end
+
   def authenticate_for_specific_path
     if request.path == reservations_path  # Replace with your desired path
       authenticate_user!
@@ -30,9 +17,8 @@ class ReservationsController < ApplicationController
   # GET /reservations/1 or /reservations/1.json
   def show
     @reservations = Reservation.all
-    
   end
-  
+
 
   # GET /reservations/new
   def new
@@ -40,9 +26,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new
     if current_user.email.end_with?('@admin.com')
       admin_pending_path
-     else
-
-     end
+    end
   end
 
 
@@ -68,13 +52,11 @@ class ReservationsController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
-
     end
   end
 
   # PATCH/PUT /reservations/1 or /reservations/1.json
   def update
-  
     respond_to do |format|
       if @reservation.update(reservation_params)
         format.html { redirect_to reservation_url(@reservation), notice: "Reservation was successfully updated." }
@@ -89,12 +71,10 @@ class ReservationsController < ApplicationController
   # DELETE /reservations/1 or /reservations/1.json
   def destroy
     @reservation.destroy
-    
+
     respond_to do |format|
       format.html { redirect_to reservations_url, notice: "Reservation was successfully destroyed." }
       format.json { head :no_content }
-      
-      
     end
   end
 
@@ -104,18 +84,14 @@ class ReservationsController < ApplicationController
       @reservation = Reservation.find(params[:id])
       if current_user.email.end_with?('@admin.com')
         admin_pending_path
-       else
-
-       end
+      end
     end
 
     # Only allow a list of trusted parameters through.
     def reservation_params
       if current_user.email.end_with?('@admin.com')
         admin_pending_path
-       else
-
-       end
+      end
       params.require(:reservation).permit(:res_name, :res_type, :contact_num, :res_date, :res_time, :sched_days, :avr, :user_id, :user_email)
     end
 end
