@@ -76,3 +76,4 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem "simple_calendar", "~> 2.4"
+gem 'pagy', '~> 6.0' # omit patch digit
