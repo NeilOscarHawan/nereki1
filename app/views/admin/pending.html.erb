@@ -11,10 +11,10 @@
     <th>Date Reserved</th>
     <th>Time Reserved</th>
     <th>AVR</th>
+    <th>Status</th>
     <th></th>
     <th>Actions</th>
-    <th></th>
-    <th></th>
+  
     </tr>
 </thead>
 
@@ -22,20 +22,28 @@
 
       <% @reservations.each do |reservation| %>
         <tr>
+        <% if reservation.res_status == 'Pending' %>   
         <td><%= reservation.res_name %></td>
         <td><%= reservation.res_type %></td>
         <td><%= reservation.res_date.strftime("%B %d") %></td>  
         <td><%= reservation.res_time %></td>
         <td><%= reservation.avr %></td>
+        <% if reservation.res_status == 'Pending' %>
+        <td style ="color: orange"><%= reservation.res_status %></td>
+        <% else %>
+        <td style ="color: green"><%= reservation.res_status %></td>
+        <% end %>
         <td>
 
         </td>
 
         <td>
-        <%= link_to "Show reservation", reservation%>
+        <%= link_to "View", reservation%>
         </td>
         </tr>
+        <%end%>
       <% end %>
     </tbody>
 </table>
 </div>
+

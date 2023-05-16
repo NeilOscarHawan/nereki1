@@ -9,25 +9,31 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super
+  end
   layout false
   def after_sign_out_path_for(_resource_or_scope)
     root_path
   end
-
+def after_sign_in_path_for(_resource_or_scope)
+  if current_user.email.end_with?('@gmail.com')
+     destroy_user_session_path
+    else
+      root_path
+    end
+  end
   def after_sign_in_path_for(_resource_or_scope)
-  if current_user.email.end_with?('@admin.com') || user_email == 'admin@admin.com' && user_password == 'admin123'
+  if current_user.email.end_with?('@admin.com')
      admin_index_path
     else
       root_path
     end
   end
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def new_admin
+    
+  end
 
   # protected
 

@@ -1,21 +1,38 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: green, text-align: center;"><%= notice %></p>
+<div class="title card" >
 
+<h1>Reservation Summary</h1>
+
+<div class="card" style="border-color:black">
 <%= render @reservation %>
-<div>
-  <%= link_to "Edit this reservation", edit_reservation_path(@reservation) %> 
-  <% if current_user.email.end_with?('@admin.com') %>
-    <%= link_to "Back to reservations", admin_pending_path %>
-    <%else %>
-    
+<br>
 
+
+<% if @reservation.res_status == 'Pending' || current_user.email.end_with?('@admin.com') %>
+  <%= button_to "Edit this reservation", edit_reservation_path(@reservation), method: :get %> 
+<div style="text-align: right;"> <%= button_to "Delete reservation", @reservation, method: :delete, class: 'btn btn-danger',  onclick: "return confirm('Are you sure?');" %> </div>
+  <%end%>
+  <% if @reservation.res_status == 'Approved' && !current_user.email.end_with?('@admin.com') %>
+  <p style="color: red;">To EDIT or DELETE Approved Reservations, please contact the admin.</p>
+  <%end%>
+</div>
+<% if current_user.email.end_with?('@admin.com') %>
+<%= button_to "<< Back ", admin_pending_path, method: :get, class: 'btn' %> <br>
+<%else%>
+<%= button_to "<< Back ", reservations_path, method: :get, class: 'btn' %> <br>
+<%end%>
+</div>
+
+
+
+<% if current_user.email.end_with?('@admin.com') %><%else %>
 
 <% if current_user.email.end_with?('@admin.com') %>
-  <%= button_to "Delete this reservation", @reservation, method: :delete, data: {confirm:'Are you sure?'} %>
-</div>
 <%else %>
 
-<%= link_to "Back to reservations", reservations_path %>
-<%= button_to "Delete this reservation", @reservation, method: :delete, data: {confirm:'Are you sure?'} %>
+
 <%end%>
 <%end %>
+
+
 </div>

@@ -18,20 +18,24 @@
       <div class= "col-4 p-3 mb-2">
         <%= render 'admin/header' %>
        </div>
-    <div class= "col bg-white">
-    <div class="">
+    <div class= "card col bg-white">
+    <div style="text-align: right;">
     <% if current_user %>
-   <%= current_user.email %>
-    <%= link_to "Edit Account", edit_user_registration_path %>
-    <%= button_to "Logout", destroy_user_session_path, data: {turbo: "false"}, method: :delete %>
-    <% else %>
-    <%= link_to "Login", new_user_session_path %>
-    <% end %>
-    
-    </div>
-    <div class="title card">
-    <%= yield %>
-   </div>
+   <% if current_user.email.end_with?('@my.xu.edu.ph') %>
+   | Student
+   <% end %>
+   <% if current_user.email.end_with?('@xu.edu.ph')  %>
+   | Teacher
+   <% end %>
+   <% if current_user.email.end_with?('@admin.com')  %>
+    ADMIN
+   <% end %>
+   <%= button_to "Logout", destroy_user_session_path, data: {turbo: "false"}, method: :delete %>
+   <% else %>
+   <%= link_to "LOGIN", new_user_session_path %>
+   <% end %>
+   <%= yield %>
+  </div>
    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

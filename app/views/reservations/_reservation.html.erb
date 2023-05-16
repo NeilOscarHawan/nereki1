@@ -1,7 +1,25 @@
 <div id="<%= dom_id reservation %>">
+
+<div class = "row">
+  <div class = "col" style="text-align: left;">
+  <br>
+  <% if reservation.res_status == 'Pending' %>
+  <p style="color: orange">
+  <strong style = "color:black">Status:</strong>
+  <strong><%= reservation.res_status %> </strong>
+</p>
+<% else %>
+<p style="color: green">
+  <strong style = "color:black">Status:</strong>
+  <strong><%= reservation.res_status %> </strong>
+</p>
+
+<%end%>
+  <br>
   <p>
-    <strong>Reservation Name:</strong>
-    <%= reservation.res_name %>
+  <div>
+    <strong>Reservation Name: </strong> <%= reservation.res_name %>
+  </div>
   </p>
 
   <p>
@@ -11,18 +29,33 @@
 
   <p>
     <strong>Contact number:</strong>
-    <%= reservation.contact_num %>
+     <%= reservation.contact_num %>
   </p>
 
   <p>
     <strong>Email:</strong>
     <%= reservation.user_email %>
   </p>
-  <p>
-    <strong>Reservation Date:</strong>
-    <%= reservation.res_date %>
-  </p>
+ 
 
+
+<br>
+<br> 
+  
+  </div>
+  <br>
+  <br>
+  <div class = "col" style="text-align: left;">
+  
+  <br>
+  
+  <br>
+  <br>
+  <br>
+  <p>
+  <strong>Reservation Date:</strong>
+  <%= reservation.res_date %>
+</p>
   <p>
     <strong>Reservation Time:</strong>
     <%= reservation.res_time %>
@@ -37,10 +70,16 @@
     <strong>Preferred AVR:</strong>
     <%= reservation.avr %>
   </p>
-
-  <p>
+  <p style= "text-align: right;">
+  <br> <br> <br> <br> <br>
   Date Created:
-  <%= reservation.created_at.strftime("%B %d") %>
-</p>
+  <%= reservation.created_at.strftime("%B %d, %Y") %>
+  </p>
+  </p>
+
+  <div class = "row">
+  </div>
 
 </div>
+</div>
+

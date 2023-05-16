@@ -1,40 +1,48 @@
-<%= stylesheet_link_tag('application') %>
+<p style="color: green"><%= notice %></p>
 
+<h1>Approved</h1>
 
-<div class= "title card">
-<h1> Approved Reservations </h1>
+<div class ="mt-5 text-center">
 <table class="table">
-  <thead>
+<thead class="thead ">
     <tr>
-      <th scope="col">Date</th>
-      <th scope="col">Subject</th>
-      <th scope="col">Section</th>
-      <th scope="col">AVR</th>
-      <th scope="col">Status</th>
+    <th>Reservation Name</th>
+    <th>Reservation Type</th>
+    <th>Date Reserved</th>
+    <th>Time Reserved</th>
+    <th>AVR</th>
+    <th>Status</th>
+    <th></th>
+    <th>Actions</th>
+
     </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row">05/06/2023</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>PENDING</td>
-    </tr>
-    <tr>
-      <td scope="row">05/06/2023</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>PENDING</td>
-    </tr>
-    <tr>
-      <td scope="row">05/06/2023</td>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td>PENDING</td>
-    </tr>
-  </tbody>
+</thead>
+
+<tbody>
+
+      <% @reservations.each do |reservation| %>
+        <tr>
+        <% if reservation.res_status == 'Approved' %>   
+        <td><%= reservation.res_name %></td>
+        <td><%= reservation.res_type %></td>
+        <td><%= reservation.res_date.strftime("%B %d") %></td>  
+        <td><%= reservation.res_time %></td>
+        <td><%= reservation.avr %></td>
+        <% if reservation.res_status == 'Pending' %>
+        <td style ="color: orange"><%= reservation.res_status %></td>
+        <% else %>
+        <td style ="color: green"><%= reservation.res_status %></td>
+        <% end %>
+        <td>
+
+        </td>
+
+        <td>
+        <%= button_to "Show", reservation, method: :get, class:"show" %>
+        </td>
+        </tr>
+        <%end%>
+      <% end %>
+    </tbody>
 </table>
 </div>

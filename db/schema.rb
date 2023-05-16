@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_11_184643) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_14_103853) do
   create_table "reservations", force: :cascade do |t|
     t.string "res_name"
     t.string "res_type"
@@ -23,6 +23,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_184643) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.string "user_email"
+    t.integer "slots"
+    t.string "res_status"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 

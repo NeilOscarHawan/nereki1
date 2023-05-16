@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'users/sign_in'
   get 'users/index'
   get 'devise/sessions/new'
+  get 'devise/sessions/new_admin'
   get 'reservations/new'
   get 'reservation/shared'
 
