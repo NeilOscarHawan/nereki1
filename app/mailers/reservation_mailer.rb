@@ -6,13 +6,11 @@ class ReservationMailer < ApplicationMailer
   #   en.reservation_mailer.reservation_approved.subject
   #
   @reservation = Reservation.all
-    @user = User.all
   def reservation_approved
-    @user = User.all
     @greeting = "Hi"
 
    mail(
-    to: "neilhawan@gmail.com",
+    to: "20150008329@my.xu.edu.ph",
     subject: "Reservation Approved"
    )
   end
