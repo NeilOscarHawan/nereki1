@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :reservations
+  resources :avrs
   
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   get 'admin/index'
   get 'admin/pending'
   get 'admin/faq'
+  get 'admin/avr'
   get 'admin/approved'
   get 'home/reserve'
   get 'users/sign_in'

@@ -1,0 +1,3 @@
+class Avr < ApplicationRecord
+
+end

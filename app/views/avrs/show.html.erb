@@ -1,0 +1,22 @@
+<div class="title card" >
+
+<h1> Edit AVR Status </h1>
+
+<div class ="mt-5 text-center">
+<table class="table">
+<thead class="thead ">
+<th>AVR</th>
+<th>Active</th>
+<th>For students</th>
+    <tr>
+    <td><%= @avr.avr_name %></td>
+    <td><%= @avr.avr_status %></td>
+    <td><%= @avr.is_for_students %></td>
+    </tr></tbody>
+    </table>
+    </div>
+    <%= button_to "Edit this AVR", edit_avr_path(@avr), method: :get %> 
+    <br>
+    <%= button_to "Delete AVR", @avr, method: :delete, class: 'btn btn-danger',  onclick: "return confirm('Are you sure?');" %> </div>
+    
+</div>

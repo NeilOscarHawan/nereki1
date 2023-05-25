@@ -1,0 +1,27 @@
+<h1>AVR Management</h1>
+<div class ="mt-5 text-center">
+<table class="table">
+<thead class="thead ">
+<tr>
+<th>AVR</th>
+<th>Active</th>
+<th>For students</th>
+<th>Actions</th>
+</tr>
+</thead>
+
+
+
+<tbody>
+<% @avrs.each do |avr|  %>
+<tr>
+<td><%= avr.avr_name %></td>
+<td><%= avr.avr_status %></td>
+<td><%= avr.is_for_students %></td>
+<td> <%= button_to "Show", avr, method: :get, class:"show" %> </td>
+</tr>
+<% end %>
+</tbody>
+</table>
+<%= button_to "Add", new_avr_path, method: :get, class:"Add" %>
+</div>

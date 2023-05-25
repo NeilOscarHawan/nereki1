@@ -8,6 +8,8 @@ class ReservationsController < ApplicationController
   # GET /reservations or /reservations.json
   def index
     @pagy, @reservations = pagy(Reservation.all, items: 10)
+    
+ 
   end
  
   def authenticate_for_specific_path
@@ -27,6 +29,8 @@ class ReservationsController < ApplicationController
   def new
     @reservations = Reservation.all
     @reservation = Reservation.new
+    @avrs = Avr.where("avr_status = true").pluck(:avr_name)
+    @avrs_students = Avr.where(is_for_students: true, avr_status: true).pluck(:avr_name)
     @users = User.all
     if current_user.email.end_with?('@admin.com')
       admin_pending_path

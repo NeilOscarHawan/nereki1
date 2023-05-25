@@ -36,14 +36,11 @@
       
           <p class = "col"> 
           <%= form.label :avr, "AVR:", style: "display: block" %>
-          <% if current_user.email.end_with?('@my.xu.edu.ph') %>
-          <%= form.select  :avr, ['AVR2', 'AVR3', 'AVR4', 'AVR5', 'AVR6', 'AVR7', 'AVR8'], :prompt => 'AVR #' %>
-          <%end%>
-          <% if current_user.email.end_with?('@xu.edu.ph') %>
-          <%= form.select  :avr, ['SL2', 'AVR2', 'AVR3', 'AVR4', 'AVR5', 'AVR6', 'AVR7', 'AVR8', 'DBM', 'Registrar'], :prompt => 'AVR #' %>
-          <%end%>
-          <% if current_user.email.end_with?('@admin.com') %>
-          <%= form.select  :avr, ['SL2', 'AVR2', 'AVR3', 'AVR4', 'AVR5', 'AVR6', 'AVR7', 'AVR8', 'DBM', 'Registrar'], :prompt => 'AVR #' %>
+          
+          <% if current_user.email.end_with?('@xu.edu.ph') || current_user.email.end_with?('@admin.com') %>
+          <%= form.select :avr, options_for_select(@avrs), prompt: 'AVR #' %>
+          <%else%>
+          <%= form.select :avr, options_for_select(@avrs_students), prompt: 'AVR #' %>
           <%end%>
           </p>
           <p class= "col">
@@ -93,7 +90,11 @@
           
         <p>
           <%= form.label :contact_num, "Contact Number:", style: "display: block" %>
-          <%= form.text_field :contact_num, placeholder: '09XXXXXXXXX' %>
+          <%= form.number_field :contact_num, placeholder: '09XXXXXXXXX', max: 999_999_999_99, class: 'contact-number-field' %>
+          <br>
+          
+
+
         </p>
         <div class="row">
        
