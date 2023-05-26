@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
   def index
     @pagy, @reservations = pagy(Reservation.all, items: 10)
     
- 
+
   end
  
   def authenticate_for_specific_path
@@ -44,6 +44,9 @@ end
   def edit
     @reservations = Reservation.all
     @users = User.all
+    @avrs = Avr.where("avr_status = true").pluck(:avr_name)
+    @avrs_students = Avr.where(is_for_students: true, avr_status: true).pluck(:avr_name)
+    
     if current_user.email.end_with?('@admin.com')
       admin_pending_path
      else
@@ -55,6 +58,10 @@ end
   def create
     @reservation = Reservation.new(reservation_params)
     @users = User.all
+    
+    @avrs = Avr.where("avr_status = true").pluck(:avr_name)
+    @avrs_students = Avr.where(is_for_students: true, avr_status: true).pluck(:avr_name)
+    
     respond_to do |format|
       if @reservation.save
 

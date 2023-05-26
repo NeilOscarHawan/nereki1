@@ -3,8 +3,8 @@
 .center {
   display: block;
   margin: auto;
-  width: 20%;
-  height: 60%;
+  width: 25%;
+  height: 95%;
   border-radius: 10px;  
 
   padding: 10px;
@@ -56,10 +56,8 @@ input {
   box-sizing: border-box;
 }
 </style>
-<br>
-<br>
-<br>
-<br>
+
+
 
 <br>
 <div class="center">
@@ -67,9 +65,15 @@ input {
       <%= image_tag("logos/header_logo.png", width:'80%') %>
     </div>
 
+ 
 
+    
+    <h1 class = "field">Use XU Email Account</h1>
+    
+    <%= render "devise/shared/links" %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  
+  <div class="field">OR </div>
+  <br>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -92,9 +96,5 @@ input {
   </div>
 <% end %>
 <br>
-<br>
 
-
-
-<%= render "devise/shared/links" %>
 </div>

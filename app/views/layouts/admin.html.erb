@@ -13,12 +13,13 @@
     </head>
 
   <body>
-    <% render 'layouts/alerts' %>
+    
     <div class ="row">
       <div class= "col-4 p-3 mb-2">
         <%= render 'admin/header' %>
        </div>
     <div class= "card col bg-white">
+    <%= render 'layouts/alerts' %>
     <div style="text-align: right;">
     <% if current_user %>
    <% if current_user.email.end_with?('@my.xu.edu.ph') %>

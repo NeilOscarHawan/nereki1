@@ -1,6 +1,6 @@
 <h2>AVR Management</h2>
-
-
+<p class="notice"><%= notice %></p>
+<div style="text-align: left;">
 <%= form_with(model: avr) do |form| %>
 <%= form.label :avr_name, "New AVR:", style: "display: block" %>
 <%= form.text_field :avr_name, style: "display: block" %>
@@ -15,4 +15,5 @@
                   <%= form.submit "submit" %>
                   </div>
 <% end %>
+</div>
 
