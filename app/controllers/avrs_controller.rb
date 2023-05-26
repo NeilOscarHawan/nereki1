@@ -56,12 +56,12 @@ private
           # Only allow a list of trusted parameters through.
           def avr_params
             @avrs = Avr.all
-            if current_user.email.end_with?('@admin.com')
+            if current_user.email.end_with?('@admin.com') || current_user.email.end_with?('@staff.com')
               admin_pending_path
              else
               root_path
              end
-            params.require(:avr).permit(:avr_name, :avr_status, :is_for_students)
+            params.require(:avr).permit(:avr_name, :avr_status, :is_for_students, :avr_desc, :avr_loc)
           end
       end
       

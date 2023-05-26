@@ -17,8 +17,10 @@
     <% render 'layouts/alerts' %>
     <div class ="row">
       <div class= "col-4 p-3 mb-2">
-      <% if current_user.present? && current_user.email.end_with?('@admin.com')%>
-      <%= render 'admin/header' %>
+      <% if current_user.present? && current_user.email.end_with?('@admin.com') %>
+        <%= render 'admin/header' %>
+       <% elsif current_user.present? && current_user.email.end_with?('@staff.com') %>
+       <%= render 'admin/header' %>
        <% else %>
        <%= render 'home/header' %>
        <% end %>
@@ -38,6 +40,9 @@
     <% if current_user.email.end_with?('@xu.edu.ph')  %>
     | Teacher
     <% end %>
+    <% if current_user.email.end_with?('@staff.com')  %>
+    | STAFF
+    <% end %>
     <% if current_user.email.end_with?('@admin.com')  %>
      ADMIN
     <% end %>
@@ -45,9 +50,9 @@
     <%= link_to "Edit Profile", edit_user_registration_path %>
     <br>
     <br>
-    <%= button_to "Logout", destroy_user_session_path, data: {turbo: "false"}, method: :delete %>
+    <%= button_to "Logout", destroy_user_session_path, class: 'btn btn-dark', data: {turbo: "false"}, method: :delete %>
     <% else %>
-    <%= button_to "Login", new_user_session_path %>
+    <%= button_to "Login", new_user_session_path, class:'btn btn-light' %>
     <% end %>
     
     <div style="text-align: left;">

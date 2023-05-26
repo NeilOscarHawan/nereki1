@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Pending Approvals</h1>
+<h1>Pending Reservations</h1>
 
 <div class ="mt-5 text-center">
 <table class="table">
@@ -38,7 +38,7 @@
         </td>
 
         <td>
-        <%= link_to "View", reservation%>
+        <%= button_to "Show", reservation, method: :get, class:"show" %>
         </td>
         </tr>
         <%end%>

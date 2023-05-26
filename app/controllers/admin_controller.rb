@@ -6,7 +6,7 @@ class AdminController < ApplicationController
     
     def index
  @reservations = Reservation.all
-      if current_user.email.end_with?('@admin.com')
+      if current_user.email.end_with?('@admin.com') || current_user.email.end_with?('@staff.com')
         redirect_to root_path
        else
         redirect_to root_path
@@ -21,7 +21,7 @@ class AdminController < ApplicationController
     end
 
     def faq
-      if current_user.email.end_with?('@admin.com')
+      if current_user.email.end_with?('@admin.com') || current_user.email.end_with?('@staff.com')
         admin_index_path
        else
         redirect_to root_path
@@ -29,7 +29,7 @@ class AdminController < ApplicationController
     end
 
     def admin
-      if current_user.email.end_with?('@admin.com')
+      if current_user.email.end_with?('@admin.com') || current_user.email.end_with?('@staff.com')
            admin_index_path
           else
            redirect_to root_path
@@ -38,7 +38,7 @@ class AdminController < ApplicationController
 
     def approved
       @reservations = Reservation.all
-      if current_user.email.end_with?('@admin.com')
+      if current_user.email.end_with?('@admin.com') || current_user.email.end_with?('@staff.com')
         admin_index_path
        else
         redirect_to root_path
@@ -49,7 +49,7 @@ class AdminController < ApplicationController
       @users = User.all
       @avrs = Avr.all
       @reservations = Reservation.all
-      if current_user.email.end_with?('@admin.com')
+      if current_user.email.end_with?('@admin.com') || current_user.email.end_with?('@staff.com')
         admin_index_path
        else
         redirect_to root_path
@@ -57,7 +57,7 @@ class AdminController < ApplicationController
     end
     
     def after_sign_in_path_for(resource)
-        if current_user.email.end_with?('@admin.com')
+      if current_user.email.end_with?('@admin.com') || current_user.email.end_with?('@staff.com')
            admin_index_path
           else
            redirect_to root_path

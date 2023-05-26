@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
-  resources :reservations
-  resources :avrs
-  
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
     omniauth_callbacks: "users/omniauth_callbacks"
     
   }
+  resources :reservations
+  resources :avrs
+  post '/create_users', to: 'users#create', as: 'create_user'
+  resources :users
+  
+  
   get 'home/index'
   get 'home/myreservations'
   get 'home/faq'

@@ -32,7 +32,7 @@ class ReservationsController < ApplicationController
     @avrs = Avr.where("avr_status = true").pluck(:avr_name)
     @avrs_students = Avr.where(is_for_students: true, avr_status: true).pluck(:avr_name)
     @users = User.all
-    if current_user.email.end_with?('@admin.com')
+    if current_user.email.end_with?('@admin.com') || current_user.email.end_with?('@staff.com')
       admin_pending_path
     else
      root_path
@@ -47,7 +47,7 @@ end
     @avrs = Avr.where("avr_status = true").pluck(:avr_name)
     @avrs_students = Avr.where(is_for_students: true, avr_status: true).pluck(:avr_name)
     
-    if current_user.email.end_with?('@admin.com')
+    if current_user.email.end_with?('@admin.com') || current_user.email.end_with?('@staff.com')
       admin_pending_path
      else
       root_path
@@ -107,7 +107,7 @@ end
       @users = User.all
       @reservation = Reservation.find(params[:id])
       
-      if current_user.email.end_with?('@admin.com')
+      if current_user.email.end_with?('@admin.com') || current_user.email.end_with?('@staff.com')
         admin_pending_path
        else
         root_path
@@ -117,7 +117,7 @@ end
     # Only allow a list of trusted parameters through.
     def reservation_params
       @users = User.all
-      if current_user.email.end_with?('@admin.com')
+      if current_user.email.end_with?('@admin.com') || current_user.email.end_with?('@staff.com')
         admin_pending_path
        else
         root_path

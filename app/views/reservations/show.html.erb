@@ -8,15 +8,15 @@
 <br>
 
 
-<% if @reservation.res_status == 'Pending' || current_user.email.end_with?('@admin.com') %>
+<% if @reservation.res_status == 'Pending' || current_user.email.end_with?('@admin.com') || current_user.email.end_with?('@staff.com') %>
   <%= button_to "Edit this reservation", edit_reservation_path(@reservation), method: :get %> 
 <div style="text-align: right;"> <%= button_to "Delete reservation", @reservation, method: :delete, class: 'btn btn-danger',  onclick: "return confirm('Are you sure?');" %> </div>
   <%end%>
-  <% if @reservation.res_status == 'Approved' && !current_user.email.end_with?('@admin.com') %>
+  <% if @reservation.res_status == 'Approved' && !current_user.email.end_with?('@admin.com') || current_user.email.end_with?('@staff.com') %>
   <p style="color: red;">To EDIT or DELETE Approved Reservations, please contact the admin.</p>
   <%end%>
 </div>
-<% if current_user.email.end_with?('@admin.com') %>
+<% if current_user.email.end_with?('@admin.com') || current_user.email.end_with?('@staff.com') %>
 <%= button_to "<< Back ", admin_pending_path, method: :get, class: 'btn' %> <br>
 <%else%>
 <%= button_to "<< Back ", reservations_path, method: :get, class: 'btn' %> <br>
@@ -25,9 +25,9 @@
 
 
 
-<% if current_user.email.end_with?('@admin.com') %><%else %>
+<% if current_user.email.end_with?('@admin.com') || current_user.email.end_with?('@staff.com') %><%else %>
 
-<% if current_user.email.end_with?('@admin.com') %>
+<% if current_user.email.end_with?('@admin.com') || current_user.email.end_with?('@staff.com') %>
 <%else %>
 
 

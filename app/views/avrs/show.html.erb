@@ -6,17 +6,31 @@
 <table class="table">
 <thead class="thead ">
 <th>AVR</th>
-<th>Active</th>
-<th>For students</th>
+<th>Facilities</th>
+<th>Location</th>
+<th>For Teachers/Admin</th>
+<th>For Students</th>
     <tr>
     <td><%= @avr.avr_name %></td>
+    <td><%= @avr.avr_desc %></td>
+    <td><%= @avr.avr_loc %></td>
     <td><%= @avr.avr_status %></td>
     <td><%= @avr.is_for_students %></td>
     </tr></tbody>
     </table>
-    </div>
-    <%= button_to "Edit this AVR", edit_avr_path(@avr), method: :get %> 
-    <br>
+    </div><span style="text-align: center;">
+    <%= button_to "Edit",  edit_avr_path(@avr), class: 'btn btn-primary' , method: :get %> 
+    </span>
+    <span style="text-align: right;">
+    
     <%= button_to "Delete AVR", @avr, method: :delete, class: 'btn btn-danger',  onclick: "return confirm('Are you sure?');" %> </div>
+    
+    </span>
+    
+    <span style="text-align: left;"><%= button_to "Back", avrs_path, method: :get %> </span>
+    
+    <br>
+    
+    <br>
     
 </div>

@@ -24,20 +24,26 @@
         <br>
         <br> <br>
       
+        
+        <br>
+        <li class="nav-item">
+        <%= link_to 'Pending Reservations', admin_pending_path, class:"nav-link active h1" %>
+        </li>
+        <br>
+        <li class="nav-item">
+        <%= link_to 'Approved Reservations', admin_approved_path, class:"nav-link active h1" %>
+        </li>
+        <br>
+        <br>
+        <%  if current_user.email.end_with?('@admin.com') %>
         <li class="nav-item">
         <%= link_to 'AVR Management', avrs_path, class:"nav-link active h1" %>
         </li>
         <br>
         <li class="nav-item">
-        <%= link_to 'Pending', admin_pending_path, class:"nav-link pending active h1" %>
+        <%= link_to 'Manage Users', users_path , class:"nav-link active h1" %>
         </li>
-        <br>
-        <li class="nav-item">
-        <%= link_to 'Approved', admin_approved_path, class:"nav-link approved active h1" %>
-        </li>
-        
-        <br>
-        <br>
+        <% end %>
         <br>
         <br>
         <br>

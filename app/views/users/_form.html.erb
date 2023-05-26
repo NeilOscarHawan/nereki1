@@ -1,0 +1,36 @@
+<span style="text-align: left;"><%= button_to "Back", avrs_path, method: :get %> </span>
+<br>
+<br>
+
+<p style="color: green, text-align: center;"><%= notice %></p>
+<div style="text-align: left;">
+<%= form_with(url: create_user_path, model: user, local: true) do |form| %>
+<%= form.label :email, "Email:", style: "display: block" %>
+<%= form.text_field :email, type: 'email', style: "display: block" %>
+<em>For STAFF role use @staff.com </em> <br>
+<em>For ADMIN role use @admin.com </em>
+<br>
+<br>
+<%= form.label :full_name, "Given Name:", style: "display: block" %>
+<%= form.text_field :full_name, type: 'name', style: "display: block" %>
+<br>
+<%= form.label :password, "Password:", style: "display: block" %>
+<%= form.text_field :password, type: 'password'%>
+<br>
+<%= form.label :password_confirmation, "Confirm Password:", style: "display: block" %>
+<%= form.text_field :password_confirmation, type: 'password' %>
+<br>
+
+
+<div style= "text-align: center;">
+                  <%= form.submit "submit", class: "btn btn-success" %>
+</div>
+<div style= "text-align: right;">
+<%= link_to "Delete User", @user, method: :delete, class: 'btn btn-danger', onclick: "return confirm('Are you sure?');", turbo: false %> </div>
+</div>
+<% end %>
+</div>
+<br>
+<br>
+
+

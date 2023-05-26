@@ -1,0 +1,41 @@
+<div class="title card" >
+
+<h1> Edit User</h1>
+
+<div class ="mt-5 text-center">
+<table class="table">
+<thead class="thead ">
+<th>Email</th>
+<th>Full Name</th>
+<th>Role</th>
+
+    <tr>
+    <td><%= @user.email %></td>
+    <td><%= @user.full_name %></td>
+    <%  if @user.role == 'Student' %>
+    <td>Student</td>
+    <% elsif @user.role == 'Teacher' %>
+    <td>Teacher</td>
+    <% elsif @user.role == 'Admin' %>
+    <td>Admin</td>
+    <% elsif @user.role == 'Staff' %>
+    <td>Staff</td>
+    <% end %>
+    </tr></tbody>
+    </table>
+    </div><span style="text-align: center;">
+    <%= button_to "Edit",  edit_user_path(@user), class: 'btn btn-primary' , method: :get %> 
+    </span>
+    <span style="text-align: right;">
+    
+    <%= button_to "Delete User", @user, method: :delete, class: 'btn btn-danger',  onclick: "return confirm('Are you sure?');" %> </div>
+    
+    </span>
+    
+    <span style="text-align: left;"><%= button_to "Back", users_path, method: :get %> </span>
+    
+    <br>
+    
+    <br>
+    
+</div>

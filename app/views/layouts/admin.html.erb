@@ -31,12 +31,15 @@
    <% if current_user.email.end_with?('@admin.com')  %>
     ADMIN |
    <% end %>
+   <% if current_user.email.end_with?('@staff.com')  %>
+   STAFF |
+  <% end %>
    <%= link_to "Edit Profile", edit_user_registration_path %>
     <br>
     <br>
-   <%= button_to "Logout", destroy_user_session_path, data: {turbo: "false"}, method: :delete %>
+   <%= button_to "Logout", destroy_user_session_path, class: 'btn btn-dark', data: {turbo: "false"}, method: :delete %>
    <% else %>
-   <%= link_to "LOGIN", new_user_session_path %>
+   <%= link_to "LOGIN" , new_user_session_path, class: 'btn btn-light' %>
    <% end %>
    <%= yield %>
   </div>

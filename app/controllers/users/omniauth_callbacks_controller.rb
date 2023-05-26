@@ -10,16 +10,18 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
     user = User.from_omniauth(auth)
 
-    if user.present? && user.email.end_with?("@my.xu.edu.ph") || user.email.end_with?("@xu.edu.ph") || user.email.end_with?("@admin.com")
+    if user.present? && user.email.end_with?("@my.xu.edu.ph") || user.email.end_with?("@xu.edu.ph") || user.email.end_with?("@admin.com") || user.email.end_with?("@staff.com")
       sign_out_all_scopes
       flash[:success] = t 'devise.omniauth_callbacks.success', kind: 'Google'
       sign_in_and_redirect user, event: :authentication
     else
-      flash[:alert] = 
-        t 'devise.omniauth_callbacks.failure', kind: 'Google', reason: "#{auth.info.email} is not authorized."
-      redirect_to new_user_session_path
+      respond_to do |format|
+      format.html { redirect_to new_user_session_path, notice: "Login using XU Email Accounts, Staff, or Admin credentials only" }
+      format.json { head :no_content }
+
     end
   end
+end
   # More info at:
   # https://github.com/heartcombo/devise#omniauth
 

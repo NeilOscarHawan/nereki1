@@ -4,8 +4,10 @@
 <thead class="thead ">
 <tr>
 <th>AVR</th>
+<th>Facilities</th>
+<th>Location</th>
 <th>For Teachers/Admins</th>
-<th>For students</th>
+<th>For Students</th>
 <th>Actions</th>
 </tr>
 </thead>
@@ -16,6 +18,8 @@
 <% @avrs.each do |avr|  %>
 <tr>
 <td><%= avr.avr_name %></td>
+<td><%= avr.avr_desc %></td>
+<td><%= avr.avr_loc %></td>
 <td><%= avr.avr_status %></td>
 <td><%= avr.is_for_students %></td>
 <td> <%= button_to "Show", avr, method: :get, class:"show" %> </td>
@@ -23,5 +27,5 @@
 <% end %>
 </tbody>
 </table>
-<%= button_to "Add", new_avr_path, method: :get, class:"Add" %>
+<%= button_to "Add", new_avr_path, method: :get, class:"Add btn btn-success" %>
 </div>

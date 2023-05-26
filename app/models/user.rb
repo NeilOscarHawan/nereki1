@@ -19,5 +19,17 @@ class User < ApplicationRecord
             # user.skip_confirmation!
           end
         end
-      end      
+        def role
+        if self.email.end_with?("@my.xu.edu.ph")
+          "Student"
+        elsif self.email.end_with?("@xu.edu.ph")
+          "Teacher"
+        elsif self.email.end_with?("@admin.com")
+          "Admin"
+        elsif self.email.end_with?("@staff.com")
+          "Staff"
+        end
+      end    
+    end
+      
 

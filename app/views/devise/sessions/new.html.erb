@@ -72,7 +72,7 @@ input {
     
     <%= render "devise/shared/links" %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">OR </div>
+  <h1 class="field">OR </h1>
   <br>
   <div class="field">
     <%= f.label :email %><br />
@@ -93,6 +93,9 @@ input {
   <%= button_tag(type: 'submit', class: 'btn') do %>
     Login as Admin
   <% end %>
+  <br>
+  <br>
+  <p style="color: red"><%= notice %></p>
   </div>
 <% end %>
 <br>

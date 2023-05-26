@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_25_184821) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_26_175152) do
   create_table "avrs", force: :cascade do |t|
     t.string "avr_name"
     t.boolean "avr_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_for_students", default: false
+    t.string "avr_desc"
+    t.string "avr_loc"
   end
 
   create_table "reservations", force: :cascade do |t|

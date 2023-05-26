@@ -16,20 +16,21 @@ class Users::SessionsController < Devise::SessionsController
   def after_sign_out_path_for(_resource_or_scope)
     root_path
   end
+  def after_sign_in_path_for(_resource_or_scope)
+    if current_user.email.end_with?('@admin.com')
+       admin_index_path
+    elsif current_user.email.end_with?('@staff.com')
+      admin_index_path
+      end
+    end
 def after_sign_in_path_for(_resource_or_scope)
   if current_user.email.end_with?('@gmail.com')
-     destroy_user_session_path
+    flash.now[:alert] = "Invalid email or password"
     else
       root_path
     end
   end
-  def after_sign_in_path_for(_resource_or_scope)
-  if current_user.email.end_with?('@admin.com')
-     admin_index_path
-    else
-      root_path
-    end
-  end
+ 
   # DELETE /resource/sign_out
   def new_admin
     
