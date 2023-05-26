@@ -76,7 +76,7 @@
           <br>
           <br>
           <p class>
-          <% if current_user.email.end_with?('@admin.com') %>
+          <% if current_user.email.end_with?('@admin.com') || current_user.email.end_with?('@staff.com')  %>
         <%= form.label :res_status, "Status:", style: "display: block" %>
         <%= form.select :res_status, [ 'Pending', 'Approved'], :prompt => 'Select One'%> 
         <% else %>

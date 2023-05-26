@@ -77,6 +77,8 @@ end
 
   # PATCH/PUT /reservations/1 or /reservations/1.json
   def update
+    @avrs = Avr.where("avr_status = true").pluck(:avr_name)
+    @avrs_students = Avr.where(is_for_students: true, avr_status: true).pluck(:avr_name)
     respond_to do |format|
       if @reservation.update(reservation_params)
         ReservationMailer.reservation_approved.deliver_later
