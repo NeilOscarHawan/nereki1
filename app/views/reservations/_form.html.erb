@@ -21,7 +21,7 @@
         <br>
         
         <p>
-          <%= form.label :res_name,"Name of Reservation:", style: "display: block" %>
+          <%= form.label :res_name,"Purpose of Reservation:", style: "display: block" %>
           <%= form.text_field :res_name, placeholder: 'ex. CC21 - CCA' %>
         </p>
         
@@ -41,6 +41,7 @@
           <%= form.select :avr, options_for_select(@avrs), prompt: 'AVR #' %>
           <%else%>
           <%= form.select :avr, options_for_select(@avrs_students), prompt: 'AVR #' %>
+         
           <%end%>
           </p>
           <p class= "col">
@@ -59,19 +60,21 @@
           <%= form.select :res_type, [ 'Class', 'Office' ], :prompt => 'Select One' %>
           <%end%> 
          </p>
-          <p class="col">
-          <%= form.label :sched_days, "Days:", style: "display: block" %>
-          <%= form.select :sched_days, [ 'Mo/Thu', 'Tu/Fri', 'Wed/Sat', 'Sun' ], :prompt => 'Select One' %>
-          </p>
+         <p class="col">
+          
+         </p>
+          
           <p class= "col"> 
-          <%= form.label :date, "Date:", style: "display: block" %>
+                    <%= form.label :sched_days, "Days:", style: "display: block" %>
+          <%= form.select :sched_days, [ 'Mo/Thu', 'Tu/Fri', 'Wed/Sat', 'Sun' ], :prompt => 'Select One' %>
+        </p>
+        <p class= "col"> 
+        <%= form.label :date, "Date:", style: "display: block" %>
           <%= form.date_field :res_date, id: :date, :prompt => 'Select One' %>
         </p>
-       
-        <p class= "col"> 
-        </p>
-        <p class= "col"> 
-        </p>
+        
+        
+        
           </div>
           <br>
           <br>
@@ -93,15 +96,23 @@
           <%= form.label :contact_num, "Contact Number:", style: "display: block" %>
           <%= form.number_field :contact_num, placeholder: '09XXXXXXXXX', max: 999_999_999_99, class: 'contact-number-field' %>
           <br>
-          
-
-
-        </p>
+          </p>
+          <p>
+          <br>
+          </p>
         <div class="row">
-       
-       
+        </div> 
+        <div class="row">
         <p class="col">
-     
+        <% if current_user.email.end_with?('@my.xu.edu.ph') %>
+      <%= form.label :avr_desc, "Facilities:", style: "display: block" %>
+
+      <%= @avrs_desc_stud.map { |avr| avr.join(": ") }.join("<br> <br>").html_safe %>
+        
+      <%else%>
+        <%= form.label :avr_desc, "Facilities:", style: "display: block" %>
+        <%= @avrs_desc_teach.map { |avr| avr.join(": ") }.join("<br> <br>").html_safe %>
+        <%end%>
         </p>
         
         </div> 

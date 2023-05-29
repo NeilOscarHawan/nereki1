@@ -50,7 +50,7 @@
     <%= link_to "Edit Profile", edit_user_registration_path %>
     <br>
     <br>
-    <%= button_to "Logout", destroy_user_session_path, class: 'btn btn-dark', data: {turbo: "false"}, method: :delete %>
+    <%= button_to "Logout", destroy_user_session_path, class: ' btn-dark', data: {turbo: "false"}, method: :delete %>
     <% else %>
     <%= button_to "Login", new_user_session_path, class:'btn btn-light' %>
     <% end %>

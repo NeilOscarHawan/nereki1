@@ -8,7 +8,7 @@ class ReservationsController < ApplicationController
   # GET /reservations or /reservations.json
   def index
     @pagy, @reservations = pagy(Reservation.all, items: 10)
-    
+    @avrs = Avr.all
 
   end
  
@@ -31,6 +31,9 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new
     @avrs = Avr.where("avr_status = true").pluck(:avr_name)
     @avrs_students = Avr.where(is_for_students: true, avr_status: true).pluck(:avr_name)
+    @avrs_desc_stud = Avr.where(is_for_students: true, avr_status: true).pluck(:avr_name, :avr_desc, :avr_loc)
+    @avrs_desc_teach = Avr.where("avr_status = true").pluck(:avr_name,:avr_desc, :avr_loc)
+    
     @users = User.all
     if current_user.email.end_with?('@admin.com') || current_user.email.end_with?('@staff.com')
       admin_pending_path
@@ -58,7 +61,7 @@ end
   def create
     @reservation = Reservation.new(reservation_params)
     @users = User.all
-    
+    @avrs = Avr.all
     @avrs = Avr.where("avr_status = true").pluck(:avr_name)
     @avrs_students = Avr.where(is_for_students: true, avr_status: true).pluck(:avr_name)
     
@@ -124,7 +127,7 @@ end
        else
         root_path
        end
-      params.require(:reservation).permit(:res_name, :res_type, :contact_num, :res_date, :res_time, :sched_days, :avr, :user_id, :user_email, :slots, :res_status, :current_user)
+      params.require(:reservation).permit(:res_name, :res_type, :contact_num, :res_date, :res_time, :sched_days, :avr, :user_id, :user_email, :slots, :res_status, :current_user, :avr_desc)
     end
 end
 
