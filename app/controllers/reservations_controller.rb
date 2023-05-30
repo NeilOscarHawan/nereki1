@@ -64,6 +64,9 @@ end
     @avrs = Avr.all
     @avrs = Avr.where("avr_status = true").pluck(:avr_name)
     @avrs_students = Avr.where(is_for_students: true, avr_status: true).pluck(:avr_name)
+    @avrs_desc_stud = Avr.where(is_for_students: true, avr_status: true).pluck(:avr_name, :avr_desc, :avr_loc)
+    @avrs_desc_teach = Avr.where("avr_status = true").pluck(:avr_name,:avr_desc, :avr_loc)
+    
     
     respond_to do |format|
       if @reservation.save

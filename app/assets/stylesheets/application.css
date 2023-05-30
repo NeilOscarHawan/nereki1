@@ -32,16 +32,56 @@ h1 {
     
   }
 body{
-    min-height: 100vh;
+  min-height: 100%;
   height: 100%;
+
   }
+
 .col-6{
   margin: 0;
   width: 80%;
 }
+#date{
+  width: 100%;
+  text-align: left;
+}
+#reservation_res_time{
+  width: 100%;
+  text-align: left;
+}
 input[type=text]{
     width: 100%;
     height: 3em;
+}
+input[type=submit]{
+  width: 15%;
+  background-color: rgb(2, 82, 2);
+  color: white;
+  height: 3em;
+}
+input[type=submit]:hover{
+  cursor: pointer;
+  width: 15%;
+  background-color: green;
+  color: white;
+  height: 3em;
+}
+input[type=checkbox]{
+  width: 5%;
+  background-color: rgb(2, 82, 2);
+  color: white;
+  height: 1em;
+}
+input{
+  width: 100%;
+  height: 3em;
+}
+select{
+  width: 100%;
+  height: 3em;
+}
+.contact-number-field{
+  width: 50%;
 }
 th{
     width: 20px;
@@ -54,9 +94,7 @@ img{
   border-radius: 8px;
 
 }
-body{
-  height: 100vh;
-}
+
 .btn{
 
  color: black;
@@ -100,7 +138,7 @@ body{
 .show{
   color: rgb(213, 213, 213);
   background-color: #767677;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .show:hover{
   color: rgb(232, 232, 232);
@@ -119,9 +157,7 @@ body{
 #paginationContainer {
   text-align: center;
 }
-.flatpickr-input{
-  width: 100%;
-}
+
 button {
   padding: 6px 12px;
   margin-right: 5px;
